@@ -18,6 +18,7 @@ public class LinkedList {
         head.setNext(nodeOne);
         nodeOne.setNext(nodeTwo);
         nodeTwo.setNext(nodeThree);
+        //nodeThree.setNext(nodeOne);
         return head;
     }
 
@@ -61,4 +62,26 @@ public class LinkedList {
         return previousNode;
     }
 
+    /**
+     * 判断链表是否有环
+     * @param head
+     * @return
+     */
+    public static boolean isLoop(final Node head){
+        Node slowPointer = head;
+        Node fastPointer = head;
+        if(head==null){
+             return false;
+        }
+        while(fastPointer!=null&&fastPointer.getNext()!=null){
+             //慢指针走一步
+             slowPointer = slowPointer.getNext();
+             //快指针走两步
+             fastPointer = fastPointer.getNext().getNext();
+             if(slowPointer == fastPointer){
+                 return true;
+             }
+        }
+        return false;
+    }
 }

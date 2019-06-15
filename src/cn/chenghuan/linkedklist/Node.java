@@ -8,22 +8,22 @@ public class Node {
     /**
      * 数据
      */
-    private int data;
+    private Object data;
 
     /**
      * 指针
      */
     private Node next;
 
-    public Node(int data) {
+    public Node(Object data) {
         this.data = data;
     }
 
-    public int getData() {
+    public Object getData() {
         return data;
     }
 
-    public void setData(int data) {
+    public void setData(Object data) {
         this.data = data;
     }
 

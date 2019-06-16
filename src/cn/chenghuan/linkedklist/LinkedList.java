@@ -11,10 +11,10 @@ public class LinkedList {
      * @return Node
      */
     public static Node produceLinkedList(){
-        final Node head = new Node(0);
-        final Node nodeOne=new Node(1);
-        final Node nodeTwo=new Node(2);
-        final Node nodeThree=new Node(3);
+        final Node<Integer> head = new Node<>(0);
+        final Node<Integer> nodeOne=new Node<>(1);
+        final Node<Integer>  nodeTwo=new Node<>(2);
+        final Node<Integer> nodeThree=new Node<>(3);
         head.setNext(nodeOne);
         nodeOne.setNext(nodeTwo);
         nodeTwo.setNext(nodeThree);

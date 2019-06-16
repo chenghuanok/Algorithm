@@ -4,26 +4,26 @@ package cn.chenghuan.linkedklist;
  * 链表节点模型
  * @author  chenghuan
  */
-public class Node {
+public class Node<T> {
     /**
      * 数据
      */
-    private Object data;
+    private T data;
 
     /**
      * 指针
      */
     private Node next;
 
-    public Node(Object data) {
+    public Node(T data) {
         this.data = data;
     }
 
-    public Object getData() {
+    public T getData() {
         return data;
     }
 
-    public void setData(Object data) {
+    public void setData(T data) {
         this.data = data;
     }
 

@@ -12,7 +12,13 @@ public class StackMain {
    public static void main(String[] args){
 
          // testArrayStack();
-         testLinkedListStack();
+         //testLinkedListStack();
+        final boolean flag = ArrayUtils.isValid("({[}})");
+        if(flag){
+            System.out.println("字符串匹配！！！");
+        }else{
+            System.out.println("字符串不匹配！！！");
+        }
     }
 
     /**

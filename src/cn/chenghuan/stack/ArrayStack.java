@@ -41,14 +41,24 @@ public class ArrayStack<T> {
     }
 
     /**
+     * 栈是否为空
+     * @return
+     */
+    public boolean isEmpty(){
+        return count==0;
+    }
+
+    /**
      * 出栈
      */
-    public void pop(){
+    public Object pop(){
         //判断栈中是否有元素
         if(count==0){
             System.out.println("栈中没有元素");
         }
+        Object temp = items[count-1];
         items[--count]=null;
+        return temp;
     }
 
     /**

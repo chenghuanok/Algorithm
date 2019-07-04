@@ -2,7 +2,6 @@ package cn.chenghuan.stack;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Stack;
 
 /**
  * @author 程欢

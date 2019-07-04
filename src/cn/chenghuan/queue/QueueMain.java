@@ -12,8 +12,7 @@ public class QueueMain {
       arrayQueue.add("承欢");
       arrayQueue.add("小徐");
       arrayQueue.add("小许");
-      final String getData = arrayQueue.remove();
-      System.out.println(getData);
+      arrayQueue.remove();
       arrayQueue.queuePrint();
     }
 }

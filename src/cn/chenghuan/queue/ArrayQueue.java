@@ -65,7 +65,9 @@ public class ArrayQueue<T> {
         if(count == 0){
             System.out.println("队列为空");
         }
-        T t = data[front++];
+        T t = data[front];
+        data[front]=null;
+        front++;
         count--;
         return  t;
     }

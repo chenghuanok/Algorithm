@@ -8,11 +8,22 @@ package cn.chenghuan.queue;
 public class QueueMain {
 
     public static void main(String[] args){
-      final ArrayQueue<String> arrayQueue = new ArrayQueue<>();
-      arrayQueue.add("承欢");
-      arrayQueue.add("小徐");
-      arrayQueue.add("小许");
-      arrayQueue.remove();
-      arrayQueue.queuePrint();
+//      final ArrayQueue<String> arrayQueue = new ArrayQueue<>();
+//      arrayQueue.add("承欢");
+//      arrayQueue.add("小徐");
+//      arrayQueue.add("小许");
+//      arrayQueue.remove();
+//      arrayQueue.queuePrint();
+        stackQueueTest();
+    }
+
+    /**
+     * 栈实现队列测试
+     */
+    private static void stackQueueTest(){
+       final StackQueue<String> stackQueue = new StackQueue<>();
+       stackQueue.push("chenghuan");
+       final String queueElement = stackQueue.pop();
+       System.out.println("出队的元素为"+queueElement);
     }
 }

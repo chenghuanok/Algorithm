@@ -1,6 +1,6 @@
-package cn.chenghuan.stack;
+package cn.struct.algorithm.stack;
 
-import cn.chenghuan.linkedklist.Node;
+import cn.struct.algorithm.linkedklist.Node;
 
 /**
  * @author 程欢

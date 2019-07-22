@@ -1,4 +1,4 @@
-package cn.chenghuan.stack;
+package cn.struct.algorithm.stack;
 
 /**
  * @author 程欢

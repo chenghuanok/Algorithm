@@ -1,4 +1,4 @@
-package cn.chenghuan.queue;
+package cn.struct.algorithm.queue;
 
 import java.util.Stack;
 

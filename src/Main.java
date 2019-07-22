@@ -1,5 +1,5 @@
-import cn.chenghuan.linkedklist.LinkedList;
-import cn.chenghuan.linkedklist.Node;
+import cn.struct.algorithm.linkedklist.LinkedList;
+import cn.struct.algorithm.linkedklist.Node;
 public class Main {
 
     public static void main(String[] args) {

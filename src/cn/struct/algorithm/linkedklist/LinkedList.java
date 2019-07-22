@@ -1,4 +1,4 @@
-package cn.chenghuan.linkedklist;
+package cn.struct.algorithm.linkedklist;
 
 /**
  * 链表类

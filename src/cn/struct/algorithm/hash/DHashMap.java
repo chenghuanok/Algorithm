@@ -8,7 +8,7 @@ import cn.struct.algorithm.linkedklist.Node;
  * @Description 手工实现哈希
  * @Date 2019/7/21 21:55
  */
-public class HashKeyValue<K,V> {
+public class DHashMap<K,V> {
 
     /**
      * 默认初始容器
@@ -23,7 +23,7 @@ public class HashKeyValue<K,V> {
     /**
      * 默认构造函数
      */
-    public HashKeyValue(){
+    public DHashMap(){
         this.values = new Object[INIT_CAPACITY];
     }
 
@@ -31,7 +31,7 @@ public class HashKeyValue<K,V> {
      * 指定容量大小构造函数
      * @param size
      */
-    public HashKeyValue(int size){
+    public DHashMap(int size){
         this.values = new Object[size];
     }
 
@@ -49,19 +49,24 @@ public class HashKeyValue<K,V> {
      */
     public void put(K k,V v){
         final int arr = hash(k);
-        final Node<V> node = new Node<V>(v);
+        final KeyValueNode<K,V> keyValueNode = new KeyValueNode<>(k,v);
         //判断该地址在数组中是否有值
         if(values[arr]!=null){
-           final LinkedList linkedList = new LinkedList();
-           final Node<V> arrNode = (Node<V>)values[arr];
-           Node<V> pointer = new Node<V>(v);
-           pointer = arrNode.getNext();
-           while (pointer!= null){
+           //取出头节点
+           final KeyValueNode<K,V> arrKeyValueNode = (KeyValueNode<K,V>)values[arr];
+           //键在链表中是否存在(遍历链表)
+           KeyValueNode<K,V> pointer = new KeyValueNode<>();
+           pointer = arrKeyValueNode;
+           while(pointer!=null){
+               if(pointer.getKey().equals(k)){
+                   pointer.setValue(v);
+                   return;
+               }
                pointer = pointer.getNext();
            }
-           pointer.setNext(arrNode);
+           pointer.setNext(keyValueNode);
         }else{
-            values[arr] = node;
+            values[arr] = keyValueNode;
         }
     }
 
@@ -72,7 +77,7 @@ public class HashKeyValue<K,V> {
      */
     public V get(K k){
         final int arr = hash(k);
-        final Node<V> value = (Node<V>) values[arr];
-        return value.getData();
+        final KeyValueNode<K,V> value = (KeyValueNode<K,V>)values[arr];
+        return value.getValue();
     }
 }

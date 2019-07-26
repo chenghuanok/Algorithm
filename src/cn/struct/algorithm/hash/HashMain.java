@@ -12,8 +12,14 @@ public class HashMain {
         hashKeyValue.put(12,"chenghuan");
         final String value = hashKeyValue.get(12);
         System.out.println(value);
-        hashKeyValue.put(12,"xuwenzhu");
-        final String value2 = hashKeyValue.get(12);
+        hashKeyValue.put(22,"xuwenzhu");
+        final String value2 = hashKeyValue.get(22);
         System.out.println(value2);
+        hashKeyValue.put(13,"xiaolan");
+        final String value3 = hashKeyValue.get(13);
+        System.out.println(value3);
+        hashKeyValue.put(12,"xiaobai");
+        final String value4 = hashKeyValue.get(12);
+        System.out.println(value4);
     }
 }

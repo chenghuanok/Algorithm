@@ -31,6 +31,32 @@ public class MapUtil {
     }
 
     /**
+     * 给定一个整数数组，找出其中两个数相加等于目标值
+     * @param nums
+     * @param target
+     * @return int[]
+     */
+    public static int[] findTwoSum(final int[] nums, final int target){
+           // 结果数组
+           final int[] result={-1,-1};
+           //数组值作为键，下标作为值
+           final Map<Integer,Integer> mapNums = new HashMap<>(nums.length);
+           for (int i =0;i<nums.length;i++){
+               mapNums.put(nums[i],i);
+           }
+           //判断值是否在map中
+           for(int i =0;i<nums.length;i++){
+               int twoNum = target-nums[i];
+               if(mapNums.containsKey(twoNum)&&twoNum!=nums[i]){
+                   result[0] = i;
+                   result[1] = mapNums.get(twoNum);
+                   return result;
+               }
+           }
+           return result;
+    }
+
+    /**
      * 遍历字符串并统计
      * @param str
      */

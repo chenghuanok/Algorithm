@@ -20,11 +20,16 @@ public class HashMain {
 //        hashKeyValue.put(12,"xiaobai");
 //        final String value4 = hashKeyValue.get(12);
 //        System.out.println(value4);
-          final boolean flag = MapUtil.isValidAnaGram("cat","mac");
-          if(flag){
-              System.out.println("有效的字母异位");
-          }else{
-              System.out.println("无效的字母异位");
-          }
+//          final boolean flag = MapUtil.isValidAnaGram("cat","mac");
+//          if(flag){
+//              System.out.println("有效的字母异位");
+//          }else{
+//              System.out.println("无效的字母异位");
+//          }
+        final int[] nums = {2,3,4,5};
+        final int[] result = MapUtil.findTwoSum(nums,5);
+        for (int i =0;i<result.length;i++){
+            System.out.println(result[i]);
+        }
     }
 }

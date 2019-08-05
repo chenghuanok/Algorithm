@@ -26,8 +26,8 @@ public class HashMain {
 //          }else{
 //              System.out.println("无效的字母异位");
 //          }
-        final int[] nums = {2,3,4,5};
-        final int[] result = MapUtil.findTwoSum(nums,5);
+        final int[] nums = {2,3,4,1};
+        final int[] result = MapUtil.findTwoSum(nums,4);
         for (int i =0;i<result.length;i++){
             System.out.println(result[i]);
         }

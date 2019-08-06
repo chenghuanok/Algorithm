@@ -18,4 +18,16 @@ public class TreeTraverse {
             before(binaryTreeNode.getRightTreeNode());
         }
    }
+
+    /**
+     * 中序遍历
+     * @param binaryTreeNode
+     */
+   public static void middle(final BinaryTreeNode binaryTreeNode){
+         if(binaryTreeNode!=null){
+             middle(binaryTreeNode.getLeftTreeNode());
+             System.out.println(binaryTreeNode.getData());
+             middle(binaryTreeNode.getRightTreeNode());
+         }
+   }
 }

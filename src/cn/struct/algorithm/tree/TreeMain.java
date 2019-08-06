@@ -18,5 +18,6 @@ public class TreeMain {
         binaryTreeNodeTwo.setLeftTreeNode(binaryTreeNodeFour);
         binaryTreeNodeTwo.setRightTreeNode(binaryTreeNodeFive);
         TreeTraverse.before(binaryTreeNodeOne);
+        TreeTraverse.middle(binaryTreeNodeOne);
     }
 }

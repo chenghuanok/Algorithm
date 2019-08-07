@@ -30,4 +30,16 @@ public class TreeTraverse {
              middle(binaryTreeNode.getRightTreeNode());
          }
    }
+
+    /**
+     * 后续遍历
+     * @param binaryTreeNode
+     */
+   public static void after(final BinaryTreeNode binaryTreeNode){
+       if(binaryTreeNode!=null){
+           after(binaryTreeNode.getLeftTreeNode());
+           after(binaryTreeNode.getRightTreeNode());
+           System.out.println(binaryTreeNode.getData());
+       }
+   }
 }

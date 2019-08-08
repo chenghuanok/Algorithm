@@ -21,7 +21,9 @@ public class TreeMain {
 //        //TreeTraverse.middle(binaryTreeNodeOne);
 //        TreeTraverse.after(binaryTreeNodeOne);
           final BinaryTreeNode binaryTreeRootNode = binarySearchTree();
-          TreeTraverse.middle(binaryTreeRootNode);
+          final BinaryTreeNode searceBinaryTree = BinarySearchTree.find(binaryTreeRootNode,10);
+          System.out.println(searceBinaryTree.getData());
+          //TreeTraverse.middle(binaryTreeRootNode);
     }
 
 

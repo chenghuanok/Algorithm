@@ -56,4 +56,36 @@ public class BinarySearchTree {
              }
         }
     }
+
+    /**
+     * 二叉查找树数据对应节点删除
+     * @param binaryTreeRootNode
+     * @param data
+     */
+    public static void delete(BinaryTreeNode<Integer> binaryTreeRootNode,final int data){
+         //记录要删除节点的父节点
+         BinaryTreeNode<Integer> binaryTreeParentNode = null;
+         //找到是否有对应data的节点
+         while(binaryTreeRootNode!=null&&binaryTreeRootNode.getData()!=data){
+             binaryTreeParentNode = binaryTreeRootNode;
+             if(data>binaryTreeRootNode.getData()){
+                 binaryTreeRootNode = binaryTreeRootNode.getRightTreeNode();
+             }else if(data<binaryTreeRootNode.getData()){
+                 binaryTreeRootNode = binaryTreeRootNode.getLeftTreeNode();
+             }
+         }
+         //没有对应的data
+         if(binaryTreeRootNode==null){return;}
+         //对应的data节点没有子节点
+         if(binaryTreeRootNode.getRightTreeNode()==null&&binaryTreeRootNode.getLeftTreeNode()==null){
+             if(binaryTreeParentNode==null){
+                 binaryTreeParentNode=null;
+             }else if(binaryTreeParentNode.getRightTreeNode() ==binaryTreeRootNode){
+                  binaryTreeParentNode.setRightTreeNode(null);
+             }else{
+                 binaryTreeParentNode.setLeftTreeNode(null);
+             }
+         }
+         //对应的data节点有一个子节点
+    }
 }

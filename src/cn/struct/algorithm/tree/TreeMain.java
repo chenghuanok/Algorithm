@@ -23,7 +23,7 @@ public class TreeMain {
           final BinaryTreeNode binaryTreeRootNode = binarySearchTree();
           //final BinaryTreeNode searceBinaryTree = BinarySearchTree.find(binaryTreeRootNode,10);
           BinarySearchTree.insert(binaryTreeRootNode,4);
-          BinarySearchTree.delete(binaryTreeRootNode,8);
+          BinarySearchTree.delete(binaryTreeRootNode,10);
           TreeTraverse.middle(binaryTreeRootNode);
     }
 

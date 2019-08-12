@@ -87,5 +87,20 @@ public class BinarySearchTree {
              }
          }
          //对应的data节点有一个子节点
+         if(binaryTreeRootNode.getRightTreeNode()!=null||binaryTreeRootNode.getLeftTreeNode()!=null){
+              if(binaryTreeRootNode.getLeftTreeNode()!=null){
+                  if(binaryTreeParentNode.getRightTreeNode()==binaryTreeRootNode){
+                      binaryTreeParentNode.setRightTreeNode(binaryTreeRootNode.getLeftTreeNode());
+                  }else if(binaryTreeParentNode.getLeftTreeNode()==binaryTreeRootNode){
+                      binaryTreeParentNode.setLeftTreeNode(binaryTreeRootNode.getLeftTreeNode());
+                  }
+              }else if(binaryTreeRootNode.getRightTreeNode()!=null){
+                  if(binaryTreeParentNode.getRightTreeNode()==binaryTreeRootNode){
+                      binaryTreeParentNode.setRightTreeNode(binaryTreeRootNode.getRightTreeNode());
+                  }else if(binaryTreeParentNode.getLeftTreeNode()==binaryTreeRootNode){
+                      binaryTreeParentNode.setLeftTreeNode(binaryTreeRootNode.getRightTreeNode());
+                  }
+              }
+         }
     }
 }

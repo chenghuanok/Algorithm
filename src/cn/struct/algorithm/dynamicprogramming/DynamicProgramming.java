@@ -8,6 +8,21 @@ package cn.struct.algorithm.dynamicprogramming;
 public class DynamicProgramming {
 
     /**
+     * 三角形
+     */
+    private static final int[][] square = {
+            {7,0,0,0},
+            {7,8,0,0},
+            {7,9,1,0},
+            {7,2,3,0},
+    };
+/*
+    {7,0,0,0},
+    {3,8,0,0},
+    {8,1,0,0},
+    {2,7,4,4}*/
+
+    /**
      * 私有构造函数
      */
     private DynamicProgramming(){
@@ -52,5 +67,19 @@ public class DynamicProgramming {
             memo_i_1 = memo_i;
         }
         return memo_i;
+    }
+
+    /**
+     *
+     * 从三角形顶点出发到底部找最大路径和
+     * @param i
+     * @param j
+     * @return
+     */
+    public static int pathMaxSum(int i,int j){
+         if(i == square.length-1){
+             return square[i][j];
+         }
+         return square[i][j]+Math.max(pathMaxSum(i+1,j),pathMaxSum(i+1,j+1));
     }
 }

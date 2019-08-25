@@ -8,7 +8,9 @@ package cn.struct.algorithm.dynamicprogramming;
 public class DynamicProgrammingMain {
 
     public static void main(String[] args){
-       final int totalScheme =  DynamicProgramming.getTotalSchemeByArray(6);
-        System.out.println("总的爬楼梯方案有"+totalScheme+"中");
+       //final int totalScheme =  DynamicProgramming.getTotalSchemeByArray(6);
+       // System.out.println("总的爬楼梯方案有"+totalScheme+"中");
+        final int maxSum = DynamicProgramming.pathMaxSum(0,0);
+        System.out.println(maxSum);
     }
 }

@@ -71,7 +71,7 @@ public class DynamicProgramming {
 
     /**
      *
-     * 从三角形顶点出发到底部找最大路径和
+     * 从三角形任意位置出发到底部找最大路径和
      * @param i
      * @param j
      * @return
@@ -81,5 +81,25 @@ public class DynamicProgramming {
              return square[i][j];
          }
          return square[i][j]+Math.max(pathMaxSum(i+1,j),pathMaxSum(i+1,j+1));
+    }
+
+    /**
+     *从三角形顶点出发到底部找最大路径和
+     * @param square 三角形（二维数组表示）
+     * @return int
+     */
+    public static int totalPathMaxSum(int[][] square){
+        //从最后一行开始每一行每个元素的最大值
+        int[] maxSum = new int[square.length];
+        for(int j =0;j<square.length-1;j++){
+             maxSum[j] = square[square.length-1][j];
+        }
+        //记录每一行中元素的最大路径和
+        for(int i = square.length-2;i>=0;i--){
+            for(int j = 0;j<=i;j++){
+                maxSum[j] = Math.max(maxSum[j],maxSum[j+1])+square[i][j];
+            }
+        }
+        return maxSum[0];
     }
 }

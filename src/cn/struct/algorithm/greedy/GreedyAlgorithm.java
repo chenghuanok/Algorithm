@@ -77,6 +77,7 @@ public class GreedyAlgorithm {
                        System.out.println("第"+childeK+"个孩子");
                    }
                });
+
                sugarAndSizeMap.forEach((sugarK,sugarV)->{
                    if(Objects.equals(v,sugarV)){
                        System.out.println("分第"+sugarK+"个糖果");

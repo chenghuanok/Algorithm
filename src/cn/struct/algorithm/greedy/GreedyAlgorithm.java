@@ -26,7 +26,7 @@ public class GreedyAlgorithm {
          //获取每个孩子对糖果大小的需求并排序
          final List<Integer> childNeedSugarSizeList = childAndeSugarMap.values().stream().sorted().collect(Collectors.toList());
          findChildNeedSugar(sugarSizeList,childNeedSugarSizeList);
-         printChildeAndSugar(childSatisfySugarMap,sugarAndSizeMap,childAndeSugarMap);
+         printChildAndSugar(childSatisfySugarMap,sugarAndSizeMap,childAndeSugarMap);
       }
 
     /**
@@ -68,7 +68,7 @@ public class GreedyAlgorithm {
      * @param sugarAndSizeMap
      * @param childAndSugarMap
      */
-    public static void printChildeAndSugar(final Map<Integer, Integer> childeSatisfySugarMap,
+    public static void printChildAndSugar(final Map<Integer, Integer> childeSatisfySugarMap,
                                            final Map<Integer,Integer> sugarAndSizeMap,
                                            final Map<Integer,Integer> childAndSugarMap){
            childeSatisfySugarMap.forEach((k,v)->{

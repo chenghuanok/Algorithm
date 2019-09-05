@@ -17,16 +17,16 @@ public class GreedyAlgorithm {
 
     /**
      *贪心算法实现
-     * @param sugarAndSizeMap
-     * @param childAndeSugarMap
+     * @param sugarAndSizeMap 糖果大小map
+     * @param childAndSugarMap 孩子对糖果需求map
      */
-      public static void realize(Map<Integer,Integer> sugarAndSizeMap,Map<Integer,Integer> childAndeSugarMap){
+      public static void realize(Map<Integer,Integer> sugarAndSizeMap,Map<Integer,Integer> childAndSugarMap){
          //获取糖果大小集合并排序
          final List<Integer> sugarSizeList = sugarAndSizeMap.values().stream().sorted(Comparator.reverseOrder()).collect(Collectors.toList());
          //获取每个孩子对糖果大小的需求并排序
-         final List<Integer> childNeedSugarSizeList = childAndeSugarMap.values().stream().sorted().collect(Collectors.toList());
+         final List<Integer> childNeedSugarSizeList = childAndSugarMap.values().stream().sorted().collect(Collectors.toList());
          findChildNeedSugar(sugarSizeList,childNeedSugarSizeList);
-         printChildAndSugar(childSatisfySugarMap,sugarAndSizeMap,childAndeSugarMap);
+         printChildAndSugar(childSatisfySugarMap,sugarAndSizeMap,childAndSugarMap);
       }
 
     /**
@@ -47,9 +47,9 @@ public class GreedyAlgorithm {
 
     /**
      * 根据孩子寻找符合的糖果大小
-     * @param childAndSugar
-     * @param sugarSizeList
-     * @return
+     * @param childAndSugar 孩子对糖果需求集合
+     * @param sugarSizeList 糖果大小集合
+     * @return 集合
      */
     public static List<Integer> findMinSugarSize(Integer childAndSugar,List<Integer> sugarSizeList){
         for(int i = sugarSizeList.size()-1;i>=0;i--){

@@ -1,6 +1,6 @@
 package cn.struct.algorithm.stack;
 
-import cn.struct.algorithm.linkedklist.LinkedList;
+import cn.struct.algorithm.linkedklist.singly.SinglyLinkedList;
 
 /**
  * @author 程欢
@@ -46,6 +46,6 @@ public class StackMain {
         linkedListStack.push(2);
         linkedListStack.push(3);
         linkedListStack.pop();
-        LinkedList.printLinkedList(linkedListStack.getTop());
+        SinglyLinkedList.printLinkedList(linkedListStack.getTop());
     }
 }

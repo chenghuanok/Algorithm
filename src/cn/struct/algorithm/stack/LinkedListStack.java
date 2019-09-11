@@ -1,6 +1,6 @@
 package cn.struct.algorithm.stack;
 
-import cn.struct.algorithm.linkedklist.Node;
+import cn.struct.algorithm.linkedklist.singly.SinglyNode;
 
 /**
  * @author 程欢
@@ -11,9 +11,9 @@ public class LinkedListStack {
     /**
      * 栈顶元素
      */
-    private Node top = null;
+    private SinglyNode top = null;
 
-    public Node getTop() {
+    public SinglyNode getTop() {
         return top;
     }
 
@@ -30,9 +30,9 @@ public class LinkedListStack {
      * @param object
      */
     public void push(Object object){
-      final Node newNode = new Node(object);
-      newNode.setNext(top);
-      top=newNode;
+//      final SinglyNode newSinglyNode = new SinglyNode(object);
+//      newSinglyNode.setNext(top);
+//      top= newSinglyNode;
     }
 
     /**

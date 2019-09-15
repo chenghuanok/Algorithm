@@ -10,7 +10,11 @@ public class SinglyMain {
        final SinglyLinkedList<String> singlyLinkedList = new SinglyLinkedList<>();
        singlyLinkedList.addLast("chenghuan");
        singlyLinkedList.addLast("xuwenzhu");
-       final SinglyNode headNode = singlyLinkedList.addLast("hudie");
+       singlyLinkedList.addLast("xiaohu");
+        singlyLinkedList.addLast("xiaobai");
+       //final SinglyNode headNode = singlyLinkedList.addLast("hudie");
+       //删除
+       final SinglyNode headNode = singlyLinkedList.delete("xuwenzhu");
        SinglyLinkedList.printLinkedList(headNode);
     }
 }

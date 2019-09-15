@@ -1,7 +1,10 @@
 package cn.struct.algorithm.linkedklist.singly;
 
+import java.util.Objects;
+
 /**
  * 链表类
+ *
  * @author chenghuan
  */
 public class SinglyLinkedList<T> {
@@ -18,18 +21,41 @@ public class SinglyLinkedList<T> {
 
     /**
      * 添加节点数据
-     * @param  t 泛型
+     *
+     * @param t 泛型
      * @return SinglyNode 头结点
      * @author chenghuan
      * @date 2019/9/11 23:32
      */
-    public  SinglyNode<T> addLast(final T t) {
-         SinglyNode<T> currentNode = headNode;
-         while(currentNode.getNext()!= null){
-             currentNode = currentNode.getNext();
-         }
-         currentNode.setNext(new SinglyNode(t,null));
-         return headNode;
+    public SinglyNode<T> addLast(final T t) {
+        SinglyNode<T> currentNode = headNode;
+        while (currentNode.getNext() != null) {
+            currentNode = currentNode.getNext();
+        }
+        currentNode.setNext(new SinglyNode(t, null));
+        return headNode;
+    }
+
+    /**
+     * 删除指定的节点
+     *
+     * @param t 泛型
+     * @return SinglyNode 头结点
+     * @author chenghuan
+     * @date 2019/9/12 22:26
+     */
+    public SinglyNode<T> delete(final T t) {
+        SinglyNode<T> currentNode = headNode;
+        while (currentNode.getNext() != null) {
+            if (Objects.equals(currentNode.getNext().getData(), t)) {
+                //指针
+                currentNode.setNext(currentNode.getNext().getNext());
+                return headNode;
+            } else {
+                currentNode = currentNode.getNext();
+            }
+        }
+        throw new RuntimeException("指定的数据不存在");
     }
 
     /**

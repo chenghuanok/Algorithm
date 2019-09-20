@@ -14,7 +14,7 @@ public class SinglyMain {
         singlyLinkedList.addLast("xiaobai");
        //final SinglyNode headNode = singlyLinkedList.addLast("hudie");
        //删除
-       final SinglyNode headNode = singlyLinkedList.delete("xuwenzhu");
+       final SinglyNode headNode = singlyLinkedList.delete("xuwen");
        SinglyLinkedList.printLinkedList(headNode);
     }
 }

@@ -76,6 +76,18 @@ public class ArrayStack<T> {
     }
 
     /**
+     * 获取栈顶元素
+     * @return T
+     */
+    public T peek(){
+        if(isEmpty()){
+            throw new RuntimeException("栈为空!!!");
+        }
+        T t = items[count-1];
+        return t;
+    }
+
+    /**
      * 栈是否为空
      * @return boolean
      */

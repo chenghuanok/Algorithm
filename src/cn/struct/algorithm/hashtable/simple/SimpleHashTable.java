@@ -22,7 +22,7 @@ public class SimpleHashTable<K,V> {
     /**
      * 散列表默认大小
      */
-    private static final int DEFAULT_CAPACITY = 10;
+    private static final int DEFAULT_CAPACITY = 20;
 
     /**
      * 无参构造函数

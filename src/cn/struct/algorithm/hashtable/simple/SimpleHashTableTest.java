@@ -23,7 +23,6 @@ public class SimpleHashTableTest {
     public void get(){
         final SimpleHashTable<String,String> simpleHashTable = new SimpleHashTable<>(20);
         simpleHashTable.put("051111","xiaocheng");
-        simpleHashTable.put("051114","xiaoxu");
         simpleHashTable.put("051118","xiaobai");
         final String value = simpleHashTable.get("051118");
         System.out.println(value);

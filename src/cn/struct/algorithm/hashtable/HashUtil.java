@@ -21,6 +21,6 @@ public class HashUtil {
     }
 
     public static void main(String[] args) {
-        System.out.println(observeHash("112234"));
+        System.out.println(observeHash("112235"));
     }
 }

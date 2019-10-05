@@ -29,6 +29,7 @@ public class SimpleHashTable<K,V> {
      */
     public SimpleHashTable(){
       items = (V[]) new Object[DEFAULT_CAPACITY];
+      this.capacity = DEFAULT_CAPACITY;
     }
 
     /**
@@ -37,6 +38,7 @@ public class SimpleHashTable<K,V> {
      */
     public SimpleHashTable(int capacity){
        items = (V[]) new Object[capacity];
+       this.capacity = capacity;
     }
 
     /**

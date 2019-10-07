@@ -39,6 +39,18 @@ public class KeyValueNode<K,V> {
         this.value=value;
     }
 
+    /**
+     * 构造函数
+     * @param key
+     * @param value
+     * @param next
+     */
+    public KeyValueNode(K key,V value, KeyValueNode next){
+        this.key=key;
+        this.value=value;
+        this.next = next;
+    }
+
     public K getKey() {
         return key;
     }

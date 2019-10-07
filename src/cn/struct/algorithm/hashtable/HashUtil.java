@@ -33,6 +33,19 @@ public class HashUtil {
         return hashValue;
     }
 
+    /**
+     * 链表hash函数
+     * @param key
+     * @param size
+     * @return int
+     * @author chenghuan
+     * @date 2019/10/6 21:481
+     */
+    public static int linkHash(final String key,final int size){
+        final int hashValue = Integer.parseInt(key)%size;
+        return  hashValue;
+    }
+
     public static void main(String[] args) {
         System.out.println(linearHash("13",10));
     }

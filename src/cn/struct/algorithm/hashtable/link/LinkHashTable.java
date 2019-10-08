@@ -16,6 +16,11 @@ public class LinkHashTable<K,V> {
     private V[] items;
 
     /**
+     * 扩容之前的数组
+     */
+    private V[] oldItems;
+
+    /**
      * 数组容量
      */
     private int capacity;
@@ -29,6 +34,16 @@ public class LinkHashTable<K,V> {
      * 链表
      */
     private LinkKeyValue<K,V> linkKeyValue = null;
+
+    /**
+     * 装载因子
+     */
+    private final static double MAX_LOAD_FACTOR = 0.75;
+
+    /**
+     * 散列表中元素个数
+     */
+    transient int size;
 
     /**
      * 默认构造函数
@@ -50,18 +65,25 @@ public class LinkHashTable<K,V> {
      * @date 2019/10/7 19:48
      */
     public void put(K k,V v){
-        final int hashValue = HashUtil.linearHash(k.toString(),capacity);
-        if(items[hashValue]==null){
-            linkKeyValue= new LinkKeyValue<>();
-            items[hashValue] = (V) linkKeyValue.addFirst(k,v);
-            return;
+        if(isGrowCapacity()){
+            growCapacity();
         }
-        //判断对应的k是否存在，若存在则删除并插入链表，若不存在插入链表
-        final boolean flag = linkKeyValue.isExist(k, (KeyValueNode) items[hashValue]);
-        if(flag){
-            linkKeyValue.delete(k, (KeyValueNode) items[hashValue]);
-        }
-        linkKeyValue.addFirst(k,v, (KeyValueNode) items[hashValue]);
+        putNodeItems(k,v);
+//        final int hashValue = HashUtil.linearHash(k.toString(),capacity);
+//        if(items[hashValue]==null){
+//            linkKeyValue= new LinkKeyValue<>();
+//            items[hashValue] = (V) linkKeyValue.addFirst(k,v);
+//            size++;
+//            return;
+//        }
+//        //判断对应的k是否存在，若存在则删除并插入链表，若不存在插入链表
+//        final boolean flag = linkKeyValue.isExist(k, (KeyValueNode) items[hashValue]);
+//        if(flag){
+//            linkKeyValue.delete(k, (KeyValueNode) items[hashValue]);
+//            size--;
+//        }
+//        linkKeyValue.addFirst(k,v, (KeyValueNode) items[hashValue]);
+//        size++;
     }
 
     /**
@@ -82,6 +104,15 @@ public class LinkHashTable<K,V> {
     }
 
     /**
+     * 散列表中元素个数
+     * @author chenghuan
+     * @date 2019/10/7 19:48
+     */
+    public int getSize(){
+        return this.size;
+    }
+
+    /**
      * 打印
      */
     public void printLinkHashTable(){
@@ -91,5 +122,69 @@ public class LinkHashTable<K,V> {
                linkKeyValue.printLinkedList((KeyValueNode) items[i]);
            }
        }
+    }
+
+    /**
+     * 是否扩容
+     * @return boolean
+     *@author chenghuan
+     *@date 2019/10/8 21:57
+     */
+    private boolean isGrowCapacity(){
+       double loadFactor = (double) size/capacity;
+       if(loadFactor>MAX_LOAD_FACTOR){
+           return true;
+       }
+       return false;
+    }
+
+    /**
+     * 扩容
+     * @return boolean
+     *@author chenghuan
+     *@date 2019/10/8 21:57
+     */
+    private void growCapacity(){
+        oldItems = items;
+        items = (V[]) new Object[2*capacity];
+        capacity = 2*capacity;
+        KeyValueNode keyValueNode = (KeyValueNode) getOldItem();
+        putNodeItems((K)keyValueNode.getKey(),(V)keyValueNode.getValue());
+    }
+
+    private void putNodeItems(K k, V v){
+        final int hashValue = HashUtil.linearHash(k.toString(),capacity);
+        if(items[hashValue]==null){
+            linkKeyValue= new LinkKeyValue<>();
+            items[hashValue] = (V) linkKeyValue.addFirst(k,v);
+            size++;
+            return;
+        }
+        //判断对应的k是否存在，若存在则删除并插入链表，若不存在插入链表
+        final boolean flag = linkKeyValue.isExist(k, (KeyValueNode) items[hashValue]);
+        if(flag){
+            linkKeyValue.delete(k, (KeyValueNode) items[hashValue]);
+            size--;
+        }
+        linkKeyValue.addFirst(k,v, (KeyValueNode) items[hashValue]);
+        size++;
+    }
+
+    /**
+     * 从数组中取一个元素
+     * @return boolean
+     *@author chenghuan
+     *@date 2019/10/8 21:57
+     */
+    private V getOldItem(){
+        for (int i =0;i<oldItems.length;i++){
+            KeyValueNode keyValueNode = (KeyValueNode) items[i];
+             if(keyValueNode!=null){
+                 if(keyValueNode.getNext()!=null){
+
+                 }
+             }
+        }
+        return null;
     }
 }

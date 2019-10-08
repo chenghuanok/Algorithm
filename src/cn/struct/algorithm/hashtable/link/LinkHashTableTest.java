@@ -19,6 +19,7 @@ public class LinkHashTableTest {
        linkHashTable.put("5","e");
        //linkHashTable.put("1","e");
        linkHashTable.printLinkHashTable();
+       System.out.println("散列表中元素个数"+linkHashTable.getSize());
     }
 
     @Test

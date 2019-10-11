@@ -19,7 +19,10 @@ public class LinkHashTableTest {
        linkHashTable.put("5","e");
        //linkHashTable.put("1","e");
        linkHashTable.printLinkHashTable();
-       System.out.println("散列表中元素个数"+linkHashTable.getSize());
+        System.out.println("散列表中元素个数"+linkHashTable.getSize());
+       linkHashTable.printOldLinkHashTable();
+        System.out.println("旧散列表中元素个数"+linkHashTable.getOldSize());
+
     }
 
     @Test
@@ -30,7 +33,7 @@ public class LinkHashTableTest {
         linkHashTable.put("3","c");
         linkHashTable.put("4","d");
         linkHashTable.put("5","e");
-        final String value = linkHashTable.get("1");
+        final String value = linkHashTable.get("5");
         System.out.println(value);
     }
 

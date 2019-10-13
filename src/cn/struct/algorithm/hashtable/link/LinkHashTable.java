@@ -4,6 +4,8 @@ import cn.struct.algorithm.hash.KeyValueNode;
 import cn.struct.algorithm.hashtable.HashUtil;
 import org.junit.platform.engine.support.descriptor.FileSystemSource;
 
+import java.util.HashMap;
+
 /**
  * 散列表(链表解决散列冲突)
  * @Author: chenghuan
@@ -117,6 +119,7 @@ public class LinkHashTable<K,V> {
           if(v!=null){
               return v;
           }
+          HashMap<String,String> map = new HashMap<>();
           return null;
 //        final int hashValue = HashUtil.linearHash(k.toString(),capacity);
 //        if(items[hashValue] == null){

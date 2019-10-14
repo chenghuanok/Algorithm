@@ -17,15 +17,15 @@ public class ConsistentHashLoadBalanceNoVirtualNode {
     private String[] nodes;
 
     public ConsistentHashLoadBalanceNoVirtualNode(String[] nodes){
-        this.nodes = Arrays.copyOf(nodes, nodes.length);
-        initalization();
+        this.nodes = nodes;
+        init();
     }
 
     /**
      * 初始化哈希环
      * 循环计算每个node名称的哈希值，将其放入treeMap
      */
-    private void initalization(){
+    private void init(){
         for (String nodeName: nodes) {
             realNodes.put(hash(nodeName, 0), nodeName);
         }
@@ -43,18 +43,16 @@ public class ConsistentHashLoadBalanceNoVirtualNode {
             if (entry != null){
                 return entry.getValue();
             }
-
             else{
                 return nodes[0];
             }
-
         }else{
             return realNodes.get(hashOfKey);
         }
 
     }
 
-    private Long hash(String nodeName, int number) {
+    public Long hash(String nodeName, int number) {
         byte[] digest = md5(nodeName);
         return (((long) (digest[3 + number * 4] & 0xFF) << 24)
                 | ((long) (digest[2 + number * 4] & 0xFF) << 16)
@@ -65,7 +63,6 @@ public class ConsistentHashLoadBalanceNoVirtualNode {
 
     /**
      * md5加密
-     *
      * @param str
      * @return
      */
@@ -84,7 +81,7 @@ public class ConsistentHashLoadBalanceNoVirtualNode {
         }
     }
 
-    private void printTreeNode(){
+    public void printTreeNode(){
         if (realNodes != null && ! realNodes.isEmpty()){
             realNodes.forEach((hashKey, node) ->
                     System.out.println(
@@ -97,12 +94,6 @@ public class ConsistentHashLoadBalanceNoVirtualNode {
             System.out.println("Cycle is Empty");
         }
 
-    }
-
-    public static void main(String[] args){
-        String[] nodes = new String[]{"192.168.2.1:8080", "192.168.2.2:8080", "192.168.2.3:8080", "192.168.2.4:8080"};
-        ConsistentHashLoadBalanceNoVirtualNode consistentHash = new ConsistentHashLoadBalanceNoVirtualNode(nodes);
-        consistentHash.printTreeNode();
     }
 }
 

@@ -30,6 +30,17 @@ public class BinaryTreeNode<T>{
        this.data = data;
    }
 
+   /**
+    * 有参构造函数
+    * @author chenghuan
+    * @date 2019/10/20 22:04
+    */
+   public BinaryTreeNode(T data,BinaryTreeNode leftTreeNode,BinaryTreeNode rightTreeNode){
+       this.data = data;
+       this.leftTreeNode = leftTreeNode;
+       this.rightTreeNode = rightTreeNode;
+   }
+
     public T getData() {
         return data;
     }

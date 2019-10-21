@@ -70,6 +70,30 @@ public class CompleteBinaryTree<T> {
     }
 
     /**
+     * 获取指定元素的左节点
+     * @param data
+     * @return T
+     * @author chenghuan
+     * @date 2019/10/21 21:03
+     */
+    public T getLeft(T data){
+        final int index = getIndex(data);
+        return items[2*index];
+    }
+
+    /**
+     * 获取指定元素的右节点
+     * @param data
+     * @return T
+     * @author chenghuan
+     * @date 2019/10/21 21:05
+     */
+    public T getRight(T data){
+        final int index = getIndex(data);
+        return items[2*index+1];
+    }
+
+    /**
      * 获取指定数据的索引
      * @param data
      * @return int

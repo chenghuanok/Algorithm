@@ -29,4 +29,30 @@ public class CompleteBinaryTreeTest {
         final String root = completeBinaryTree.getRoot("f");
         System.out.println(root);
     }
+
+    @Test
+    public void getLeft(){
+        final CompleteBinaryTree<String> completeBinaryTree = new CompleteBinaryTree<>(10);
+        completeBinaryTree.add("a");
+        completeBinaryTree.add("b");
+        completeBinaryTree.add("c");
+        completeBinaryTree.add("d");
+        completeBinaryTree.add("e");
+        completeBinaryTree.add("f");
+        final String root = completeBinaryTree.getLeft("b");
+        System.out.println(root);
+    }
+
+    @Test
+    public void getRight(){
+        final CompleteBinaryTree<String> completeBinaryTree = new CompleteBinaryTree<>(10);
+        completeBinaryTree.add("a");
+        completeBinaryTree.add("b");
+        completeBinaryTree.add("c");
+        completeBinaryTree.add("d");
+        completeBinaryTree.add("e");
+        completeBinaryTree.add("f");
+        final String root = completeBinaryTree.getRight("b");
+        System.out.println(root);
+    }
 }

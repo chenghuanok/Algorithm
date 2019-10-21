@@ -1,4 +1,6 @@
-package cn.struct.algorithm.tree;
+package cn.struct.algorithm.tree.traverse;
+
+import cn.struct.algorithm.tree.BinaryTreeNode;
 
 /**
  * @author chenghuan
@@ -13,7 +15,7 @@ public class TreeTraverse {
      */
    public static void before(final BinaryTreeNode binaryTreeNode){
         if(binaryTreeNode!=null){
-            System.out.println(binaryTreeNode.getData());
+            System.out.print(binaryTreeNode.getData()+"...");
             before(binaryTreeNode.getLeftTreeNode());
             before(binaryTreeNode.getRightTreeNode());
         }
@@ -26,7 +28,7 @@ public class TreeTraverse {
    public static void middle(final BinaryTreeNode binaryTreeNode){
          if(binaryTreeNode!=null){
              middle(binaryTreeNode.getLeftTreeNode());
-             System.out.println(binaryTreeNode.getData());
+             System.out.print(binaryTreeNode.getData()+"...");
              middle(binaryTreeNode.getRightTreeNode());
          }
    }
@@ -39,7 +41,7 @@ public class TreeTraverse {
        if(binaryTreeNode!=null){
            after(binaryTreeNode.getLeftTreeNode());
            after(binaryTreeNode.getRightTreeNode());
-           System.out.println(binaryTreeNode.getData());
+           System.out.print(binaryTreeNode.getData()+"...");
        }
    }
 }

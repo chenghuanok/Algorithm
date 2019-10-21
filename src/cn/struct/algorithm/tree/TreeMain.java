@@ -1,5 +1,7 @@
 package cn.struct.algorithm.tree;
 
+import cn.struct.algorithm.tree.traverse.TreeTraverse;
+
 /**
  * @author chenghuan
  * @Description 树测试

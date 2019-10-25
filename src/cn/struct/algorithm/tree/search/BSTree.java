@@ -6,6 +6,7 @@ package cn.struct.algorithm.tree.search;
  * @Date: 2019/10/24 22:41
  */
 public class BSTree <T extends Comparable<T>>{
+
     /**
      *根结点
      */
@@ -85,6 +86,51 @@ public class BSTree <T extends Comparable<T>>{
     */
     public BSTNode<T> search(T data){
         return search(mRoot,data);
+    }
+
+    /**
+     * 插入
+     * @param bsTree
+     * @param insertNode
+     * @author chenghuan
+     * @date 2019/10/25 21:07
+     */
+    private void insert(BSTree<T> bsTree,BSTNode<T> insertNode){
+        BSTNode<T> insertNodeParent = null;
+        int compareResult;
+        BSTNode<T> insertPositionNode = bsTree.mRoot;
+        //寻找插入的节点位置
+        while(insertPositionNode!=null){
+            insertNodeParent = insertPositionNode;
+            compareResult = insertNode.data.compareTo(insertPositionNode.data);
+            if(compareResult<0){
+               insertPositionNode = insertPositionNode.left;
+            }else{
+               insertPositionNode = insertPositionNode.right;
+            }
+        }
+        insertNode.parent = insertNodeParent;
+        if(insertNodeParent == null){
+            bsTree.mRoot = insertNode;
+        }else{
+            compareResult = insertNode.data.compareTo(insertNodeParent.data);
+            if(compareResult<0){
+                insertNodeParent.left = insertNode;
+            }else{
+                insertNodeParent.right = insertNode;
+            }
+        }
+    }
+
+    /**
+     * 插入
+     * @param data
+     * @author chenghuan
+     * @date 2019/10/25 22:25
+     */
+    public void insert(T data){
+        BSTNode<T> insertNode = new BSTNode<>(data,null,null,null);
+        insert(this,insertNode);
     }
 }
 

@@ -12,7 +12,7 @@ public class SkipList<T extends Comparable<T>> {
     /**
      * 最顶层第一个元素
      */
-    private SkipNode<T> top;
+    private SkipNode<T> top ;
 
     /**
      * 初始层数
@@ -25,31 +25,41 @@ public class SkipList<T extends Comparable<T>> {
     private int size;
 
     /**
-     * 最大层数
+     * 构造函数(初始化)
      */
-    private static final int MAX_LEVEL = 1 << 6;
+    public SkipList(int level,T t){
+        this.level = level;
+        SkipNode<T> temp = top;
+        SkipNode<T> tempDownNode = null;
+        while(level--!=0){
+            temp = new SkipNode<T>(t,null,null);
+            temp.down = tempDownNode;
+            tempDownNode = temp;
+        }
+        top = temp;
+    }
 
     /**
      * 跳表节点
      * @author chenghuan
      * @date 2019/11/3 21:52
      */
-    class SkipNode<E extends Comparable<E>>{
+    class SkipNode<T extends Comparable<T>>{
         
           /**
            * 值
            */
-          E value;
+          T value;
 
           /**
            * 指向下一个元素和下一层元素
            */
-          SkipNode<E> next,down;
+          SkipNode<T> next,down;
 
         /**
          * 有参构造函数
          */
-          SkipNode(E value,SkipNode<E> next,SkipNode<E> down){
+          SkipNode(T value,SkipNode<T> next,SkipNode<T> down){
               this.value = value;
               this.next = next;
               this.down = down;
@@ -66,9 +76,11 @@ public class SkipList<T extends Comparable<T>> {
     private SkipNode<T> findSkipNode(T t){
          SkipNode<T> temp = top;
          while (true){
-            while(temp.next.value.compareTo(t)<0){
-                temp = temp.next;
-            }
+             if(temp.next!=null){
+                 while(temp.next.value.compareTo(t)<0){
+                     temp = temp.next;
+                 }
+             }
             if(temp.down == null){
                    return temp;
             }
@@ -101,26 +113,29 @@ public class SkipList<T extends Comparable<T>> {
      * @date 2019/11/3 22:46
      */
     public void add(T t){
-       int lev = getRandomLevel();
+       int randomLevel = getRandomLevel();
        int flag = 1;
        SkipNode<T> temp = top;
        SkipNode<T> tempNode;
        //当在第n行插入后，在第n - 1行插入时需要将第n行backTempNode的DownNext域指向第n - 1的节点
        SkipNode<T> beforeLevelNode = null;
        int tempLevel = level;
-       while(tempLevel--!=lev){
+       while(tempLevel--!=randomLevel){
            temp = temp.down;
        }
+
        tempLevel++;
        tempNode = temp;
        while(tempLevel--!=0){
-           while(tempNode.next.value.compareTo(t)<0){
-               tempNode = tempNode.next;
+           if(tempNode.next!=null){
+               while(tempNode.next!=null&&tempNode.next.value.compareTo(t)<0){
+                       tempNode = tempNode.next;
+               }
            }
            final SkipNode<T> skipNode = new SkipNode<>(t,tempNode.next,null);
            //如果是顶层
            if(flag != 1){
-               beforeLevelNode.next = skipNode;
+               beforeLevelNode.down = skipNode;
            }
            beforeLevelNode = skipNode;
            tempNode.next = skipNode;
@@ -136,10 +151,28 @@ public class SkipList<T extends Comparable<T>> {
      * @date 2019/11/4 22:27
      */
     private int getRandomLevel(){
-        int lev = 1;
+        int randomLevel = 1;
         while(new Random().nextInt() % 2 == 0){
-            lev ++;
+            randomLevel ++;
         }
-        return  lev > MAX_LEVEL ? MAX_LEVEL : lev;
+        return  randomLevel > level ? level : randomLevel;
+    }
+
+    /**
+     * 打印
+     * @param
+     * @return
+     * @author chenghuan
+     * @date 2019/11/6 22:26
+     */
+    public void printSkipList(){
+        SkipNode<T> temp = top;
+        while(temp.down!=null){
+            temp = temp.down;
+        }
+        while (temp.next!=null){
+            System.out.print(temp.next.value+",");
+            temp = temp.next;
+        }
     }
 }

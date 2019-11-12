@@ -49,6 +49,52 @@ public class Sort {
     }
 
     /**
+     * 插入排序
+     * @author chenghuan
+     * @date 2019/11/12 20:54
+     */
+    public void insert(){
+        for(int i =1;i<n;i++){
+            int value = a[i];
+            int j = i-1;
+            for(;j>=0;j--){
+               if(a[j]>value){
+                   //后移
+                   a[j+1] = a[j];
+               }else{
+                   break;
+               }
+            }
+            //插入位置值
+            a[j+1] = value;
+        }
+    }
+
+    /**
+     * 选择排序
+     *@author chenghuan
+     *@date 2019/11/12 21:25
+     */
+    public void select(){
+       for(int i = 0;i<n-1;i++){
+          int j = i+1;
+          //找到最小元素下标
+          int min = i;
+          for(;j<n;j++){
+              if(a[j]<a[min]){
+                  min = j;
+              }
+          }
+          //交换
+           if(min!=i){
+               int temp = a[i];
+               a[i] = a[min];
+               a[min] = temp;
+           }
+       }
+    }
+
+    /**
      * 打印
      *@author chenghuan
      *@date 2019/11/11 22:35

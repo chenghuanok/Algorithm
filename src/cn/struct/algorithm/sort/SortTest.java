@@ -15,4 +15,21 @@ public class SortTest {
         sort.bubble();
         sort.print();
     }
+
+    @Test
+    public void insert(){
+        int[] a = {1,4,7,3,5};
+        final Sort sort = new Sort(a,a.length);
+        sort.insert();
+        sort.print();
+    }
+
+    @Test
+    public void select(){
+        //int[] a = {1,4,7,3,5};
+        int[] a = {8,5,7};
+        final Sort sort = new Sort(a,a.length);
+        sort.select();
+        sort.print();
+    }
 }

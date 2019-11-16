@@ -2,6 +2,8 @@ package cn.struct.algorithm.sort;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.stream.IntStream;
+
 /**
  * @Author: chenghuan
  * @Date: 2019/11/11 22:34
@@ -30,6 +32,15 @@ public class SortTest {
         int[] a = {8,5,7};
         final Sort sort = new Sort(a,a.length);
         sort.select();
+        sort.print();
+    }
+
+    @Test
+    public void mergeSort(){
+        int[] a = { 49, 38, 65, 97, 76, 13, 27, 50 };
+        final Sort sort = new Sort(a,a.length);
+        sort.mergeSort(0, a.length-1);
+        System.out.println("排好序的数组：");
         sort.print();
     }
 }

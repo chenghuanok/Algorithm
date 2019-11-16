@@ -94,6 +94,52 @@ public class Sort {
        }
     }
 
+
+    /**
+     * 归并排序
+     *@author chenghuan
+     *@date 2019/11/16 22:32
+     */
+    public void mergeSort(int start,int end){
+        //子序列中只有一个元素时结束递归
+        if(start<end){
+            int mid = (start+end)/2;
+            mergeSort(start,mid);
+            mergeSort(mid+1,end);
+            merge(start,mid,end);
+        }
+    }
+
+    /**
+     * 两个排序好的子序列排序成一个子序列
+     *@author chenghuan
+     *@date 2019/11/16 22:36
+     */
+    private void merge(int left,int mid,int right){
+        //辅助数组
+        int[] temp = new int[a.length];
+        //p1,p2为检测指针，k为存放指针
+        int p1 = left,p2 = mid+1,k = left;
+        while(p1<=mid&&p2<=right){
+            if(a[p1]<=a[p2]){
+                temp[k++] = a[p1++];
+            }else {
+                temp[k++] = a[p2++];
+            }
+        }
+        //如果未检测完，则复制到数组的后面
+        while(p1<=mid){
+            temp[k++] = a[p1++];
+        }
+        while(p2<=right){
+            temp[k++] = a[p2++];
+        }
+        //复制到原数组中
+        IntStream.range(left,right+1).forEach(i->{
+            a[i] = temp[i];
+        });
+    }
+
     /**
      * 打印
      *@author chenghuan

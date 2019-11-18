@@ -43,4 +43,12 @@ public class SortTest {
         System.out.println("排好序的数组：");
         sort.print();
     }
+
+    @Test
+    public void quick(){
+        int[] a = { 49, 38, 65, 97, 76, 13, 27, 50 };
+        final Sort sort = new Sort(a,a.length);
+        sort.quick(0,a.length-1);
+        sort.print();
+    }
 }

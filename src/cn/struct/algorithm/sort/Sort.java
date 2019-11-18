@@ -140,6 +140,44 @@ public class Sort {
         });
     }
 
+
+    /**
+     * 快速排序
+     * @param left right
+     * @author chenghuan
+     *@date 2019/11/18 22:11
+     */
+    public void quick(int left,int right){
+        //递归退出条件
+        if(left>right){
+            return;
+        }
+       int i = left,j=right;
+       //基准数
+       int base = a[left];
+       while(i!=j){
+           //右边指针移动
+           while(a[j]>=base&&i<j){
+               j--;
+           }
+           //左边指针移动
+           while(a[i]<=base&&i<j){
+               i++;
+           }
+           //i和j元素交换
+           if(i<j){
+               int temp = a[i];
+               a[i] = a[j];
+               a[j] = temp;
+           }
+       }
+       a[left] = a[i];
+       a[i] = base;
+       //递归
+       quick(left,i-1);
+       quick(i+1,right);
+    }
+
     /**
      * 打印
      *@author chenghuan

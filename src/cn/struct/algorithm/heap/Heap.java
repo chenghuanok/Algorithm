@@ -55,12 +55,63 @@ public class Heap {
     }
 
     /**
+     * 删除堆顶元素
+     * @author chenghuan
+     * @date 2019/12/18 21:39
+     */
+    public boolean removeTop(){
+       if(count==0){
+           return false;
+       }
+       data[1] = data[count];
+       --count;
+       heapify(1);
+       return true;
+    }
+
+    /**
+     * 堆化
+     * @param i
+     * @author chenghuan
+     * @date 2019/12/18 21:42
+    */
+    private void heapify(int i){
+       while (true){
+         int maxPos = i;
+         if(2*i<=count&&data[2*i]>data[i]){
+             maxPos = 2*i;
+         }
+         if(2*i+1<=count&&data[maxPos]<data[2*i+1]){
+            maxPos = 2*i+1;
+         }
+         if(maxPos ==i){
+             break;
+         }
+         swap(i,maxPos);
+         i = maxPos;
+       }
+    }
+
+    /**
+     *
+     * @param i
+     * @return maxPos
+     * @author chenghuan
+     * @date 2019/12/18 21:48
+     */
+    private void swap(int i,int maxPos){
+        int temp = data[i];
+        data[i] = data[maxPos];
+        data[maxPos] = temp;
+    }
+
+    /**
      * 打印
      *@author chenghuan
      *@date 2019/12/17 22:18
      */
     public void print(){
-        IntStream.range(1,capicity+1).forEach(i->{
+        IntStream.range(1,count+1).forEach(i->{
             if(data[i]!=0){
                 System.out.print(data[i]+"...");
             }

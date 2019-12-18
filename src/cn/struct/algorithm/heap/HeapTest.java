@@ -18,4 +18,17 @@ public class HeapTest {
        heap.insert(39);
        heap.print();
     }
+
+    @Test
+    public void removeTop(){
+        final Heap heap = new Heap(10);
+        heap.insert(33);
+        heap.insert(56);
+        heap.insert(28);
+        heap.insert(39);
+        heap.insert(26);
+        //heap.print();
+        heap.removeTop();
+        heap.print();
+    }
 }

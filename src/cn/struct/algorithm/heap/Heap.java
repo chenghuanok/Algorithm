@@ -24,6 +24,10 @@ public class Heap {
      */
     private int count;
 
+    public Heap(int[] data){
+        this.data = data;
+    }
+
     /**
      * 默认构造函数
      */
@@ -65,17 +69,44 @@ public class Heap {
        }
        data[1] = data[count];
        --count;
-       heapify(1);
+       heapify(1,count);
        return true;
+    }
+
+    /**
+     * 排序
+     * @author chenghuan
+     * @date 2019/12/21 15:27
+     */
+    public void sort(){
+        buildHeap();
+        int k = count;
+        while (k>1){
+            swap(1,k);
+            k--;
+            heapify(1,k);
+        }
+    }
+
+    /**
+     * 建堆
+     * @author chenghuan
+     * @date 2019/12/21 15:33
+    */
+    private void buildHeap(){
+      for (int i = count/2;i>=1;i--){
+          heapify(i,count);
+      }
     }
 
     /**
      * 堆化
      * @param i
+     * @param count
      * @author chenghuan
      * @date 2019/12/18 21:42
     */
-    private void heapify(int i){
+    private void heapify(int i,int count){
        while (true){
          int maxPos = i;
          if(2*i<=count&&data[2*i]>data[i]){

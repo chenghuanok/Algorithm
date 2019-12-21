@@ -31,4 +31,16 @@ public class HeapTest {
         heap.removeTop();
         heap.print();
     }
+
+    @Test
+    public void sort(){
+        final Heap heap = new Heap(10);
+        heap.insert(33);
+        heap.insert(56);
+        heap.insert(28);
+        heap.insert(39);
+        //heap.print();
+        heap.sort();
+        heap.print();
+    }
 }

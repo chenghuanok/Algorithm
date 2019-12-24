@@ -100,6 +100,39 @@ public class Heap {
     }
 
     /**
+     * 构建最小堆
+     * @author chenghuan
+     * @date 2019/12/24 21:48
+     */
+    private void buildMinHeap(){
+        for(int i =count/2;i>=1;i--){
+            minHeapify(i,count);
+        }
+    }
+
+    /**
+     * 最小堆堆化
+     * @author chenghuan
+     * @date 2019/12/24 21:51
+     */
+    private void minHeapify(int i ,int count){
+       while (true){
+           int minPos = i;
+           if(2*i<=count&&data[2*i]<data[i]){
+               minPos = 2*i;
+           }
+           if(2*i+1<=count&&data[minPos]>data[2*i+1]){
+               minPos = 2*i+1;
+           }
+           if(minPos ==i){
+               break;
+           }
+           swap(i,minPos);
+           i = minPos;
+       }
+    }
+
+    /**
      * 堆化
      * @param i
      * @param count
@@ -134,6 +167,29 @@ public class Heap {
         int temp = data[i];
         data[i] = data[maxPos];
         data[maxPos] = temp;
+    }
+
+    /**
+     * top k数据
+     * @param k
+     * @author chenghuan
+     * @date 2019/12/24 21:58
+     */
+    public int[] topK(int k){
+        //取k个数据放入top k 中
+        int[] topK = new int[k+1];
+        for (int i =1;i<=k;i++){
+            topK[i] = data[i];
+        }
+        count = k;
+        buildMinHeap();
+        for(int i = k+1;i<=data.length;i++){
+            if(topK[1]<data[i]){
+                topK[1] = data[i];
+                buildHeap();
+            }
+        }
+        return topK;
     }
 
     /**

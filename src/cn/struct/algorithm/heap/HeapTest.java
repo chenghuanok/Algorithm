@@ -2,6 +2,8 @@ package cn.struct.algorithm.heap;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.stream.IntStream;
+
 /**
  * 测试
  * @Author: chenghuan
@@ -39,8 +41,19 @@ public class HeapTest {
         heap.insert(56);
         heap.insert(28);
         heap.insert(39);
-        //heap.print();
         heap.sort();
         heap.print();
+    }
+
+    @Test
+    public void top(){
+        int[] array = new int[]{12,3,6,8,9,4,6,14,10};
+        final Heap heap = new Heap(array);
+        final int[] topK = heap.topK(5);
+        IntStream.range(1,topK.length+1).forEach(i->{
+            if(topK[i]!=0){
+                System.out.print(topK[i]+"...");
+            }
+        });
     }
 }

@@ -24,6 +24,12 @@ public class Heap {
      */
     private int count;
 
+    /**
+     * 构造函数
+     * @param data
+     * @author chenghuan
+     * @date 2019/12/25 21:00
+    */
     public Heap(int[] data){
         this.data = data;
     }
@@ -104,9 +110,9 @@ public class Heap {
      * @author chenghuan
      * @date 2019/12/24 21:48
      */
-    private void buildMinHeap(){
-        for(int i =count/2;i>=1;i--){
-            minHeapify(i,count);
+    private void buildMinHeap(int[] data,int size){
+        for(int i =size/2;i>=1;i--){
+            minHeapify(data,i,size);
         }
     }
 
@@ -115,19 +121,22 @@ public class Heap {
      * @author chenghuan
      * @date 2019/12/24 21:51
      */
-    private void minHeapify(int i ,int count){
+    private void minHeapify(int[] data, int i ,int size){
        while (true){
            int minPos = i;
-           if(2*i<=count&&data[2*i]<data[i]){
+           if(2*i<=size&&data[2*i]<data[i]){
                minPos = 2*i;
            }
-           if(2*i+1<=count&&data[minPos]>data[2*i+1]){
+           if(2*i+1<=size&&data[minPos]>data[2*i+1]){
                minPos = 2*i+1;
            }
            if(minPos ==i){
                break;
            }
-           swap(i,minPos);
+           //swap(i,minPos);
+           int temp  = data[i];
+           data[i] = data[minPos];
+           data[minPos] = temp;
            i = minPos;
        }
     }
@@ -179,14 +188,13 @@ public class Heap {
         //取k个数据放入top k 中
         int[] topK = new int[k+1];
         for (int i =1;i<=k;i++){
-            topK[i] = data[i];
+            topK[i] = data[i-1];
         }
-        count = k;
-        buildMinHeap();
-        for(int i = k+1;i<=data.length;i++){
+        buildMinHeap(topK,k);
+        for(int i = k;i<data.length;i++){
             if(topK[1]<data[i]){
                 topK[1] = data[i];
-                buildHeap();
+                buildMinHeap(topK,k);
             }
         }
         return topK;

@@ -50,7 +50,7 @@ public class HeapTest {
         int[] array = new int[]{12,3,6,8,9,4,6,14,10};
         final Heap heap = new Heap(array);
         final int[] topK = heap.topK(5);
-        IntStream.range(1,topK.length+1).forEach(i->{
+        IntStream.range(1,topK.length).forEach(i->{
             if(topK[i]!=0){
                 System.out.print(topK[i]+"...");
             }

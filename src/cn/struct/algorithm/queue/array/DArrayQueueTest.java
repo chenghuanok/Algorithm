@@ -1,6 +1,6 @@
 package cn.struct.algorithm.queue.array;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 /**
  * 数组实现队列测试

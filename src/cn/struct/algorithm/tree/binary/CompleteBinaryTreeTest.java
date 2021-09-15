@@ -1,6 +1,6 @@
 package cn.struct.algorithm.tree.binary;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 /**
  * 完全二叉树测试

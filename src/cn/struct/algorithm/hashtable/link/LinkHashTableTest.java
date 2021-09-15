@@ -1,6 +1,7 @@
 package cn.struct.algorithm.hashtable.link;
 
-import org.junit.jupiter.api.Test;
+
+import org.junit.Test;
 
 /**
  * 测试

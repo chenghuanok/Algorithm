@@ -1,6 +1,6 @@
 package cn.struct.algorithm.linkedklist.circle;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 /**
  * 循环测试链表

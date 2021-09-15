@@ -1,6 +1,6 @@
 package cn.struct.algorithm.hashtable.linear;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 /**
  * 测试

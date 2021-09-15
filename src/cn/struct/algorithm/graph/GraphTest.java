@@ -1,6 +1,7 @@
 package cn.struct.algorithm.graph;
 
-import org.junit.jupiter.api.Test;
+
+import org.junit.Test;
 
 /**
  * @Author: chenghuan

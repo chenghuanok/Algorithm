@@ -1,6 +1,6 @@
 package cn.struct.algorithm.stack.array;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 /**
  * 数组实现栈测试

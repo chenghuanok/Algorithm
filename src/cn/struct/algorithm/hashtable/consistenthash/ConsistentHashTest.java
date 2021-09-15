@@ -1,8 +1,6 @@
 package cn.struct.algorithm.hashtable.consistenthash;
 
-import org.junit.jupiter.api.Test;
-
-import java.util.NavigableMap;
+import org.junit.Test;
 import java.util.TreeMap;
 
 /**

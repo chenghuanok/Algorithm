@@ -1,6 +1,5 @@
 package cn.struct.algorithm.stack.array;
 
-import javafx.css.Size;
 
 import java.util.Arrays;
 

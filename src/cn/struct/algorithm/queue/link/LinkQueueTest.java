@@ -1,6 +1,6 @@
 package cn.struct.algorithm.queue.link;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 /**
  * 链表实现队列测试

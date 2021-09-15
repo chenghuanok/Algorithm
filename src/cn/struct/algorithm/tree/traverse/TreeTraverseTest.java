@@ -1,7 +1,7 @@
 package cn.struct.algorithm.tree.traverse;
 
 import cn.struct.algorithm.tree.BinaryTreeNode;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 /**
  * 测试

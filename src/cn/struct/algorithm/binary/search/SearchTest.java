@@ -1,6 +1,6 @@
 package cn.struct.algorithm.binary.search;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 /**
  * @Author: chenghuan
@@ -9,34 +9,34 @@ import org.junit.jupiter.api.Test;
 public class SearchTest {
 
     @Test
-    public void search(){
-      final Search search = new Search();
-      int[] a ={1,4,6,8,9,10};
-      final boolean existFlag = search.binarySearch(a,7);
-      System.out.println(existFlag);
+    public void search() {
+        final Search search = new Search();
+        int[] a = {1, 4, 6, 8, 9, 10};
+        final boolean existFlag = search.binarySearch(a, 7);
+        System.out.println(existFlag);
     }
 
     @Test
-    public void findFirstEqualValue(){
+    public void findFirstEqualValue() {
         final Search search = new Search();
-        int[] a ={1,3,4,5,6,8,8,8,9,10};
-        final int position = search.findFirstEqualValue(a,8);
+        int[] a = {1, 3, 4, 5, 6, 8, 8, 8, 9, 10};
+        final int position = search.findFirstEqualValue(a, 8);
         System.out.println(position);
     }
 
     @Test
-    public void findEndEqualValue(){
+    public void findEndEqualValue() {
         final Search search = new Search();
-        int[] a ={1,3,4,5,6,8,8,8,9,10};
-        final int position = search.findEndEqualValue(a,8);
+        int[] a = {1, 3, 4, 5, 6, 8, 8, 8, 9, 10};
+        final int position = search.findEndEqualValue(a, 8);
         System.out.println(position);
     }
 
     @Test
-    public void findFirstThanValue(){
+    public void findFirstThanValue() {
         final Search search = new Search();
-        int[] a ={3,4,6,7,10};
-        final int position = search.findFirstThanValue(a,9);
+        int[] a = {3, 4, 6, 7, 10};
+        final int position = search.findFirstThanValue(a, 9);
         System.out.println(position);
     }
 }

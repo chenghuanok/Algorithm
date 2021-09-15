@@ -1,6 +1,6 @@
 package cn.struct.algorithm.stack.link;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 /**
  * 链表实现栈测试

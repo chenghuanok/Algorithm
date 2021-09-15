@@ -1,8 +1,6 @@
 package cn.struct.algorithm.tree.search;
 
-import cn.struct.algorithm.tree.traverse.TreeTraverse;
-import org.junit.jupiter.api.Test;
-
+import org.junit.Test;
 import java.util.stream.IntStream;
 
 /**

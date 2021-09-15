@@ -1,6 +1,6 @@
 package cn.struct.algorithm.array;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 /**
  * 数组工具类

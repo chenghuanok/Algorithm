@@ -1,6 +1,6 @@
 package cn.struct.algorithm.linkedklist.bilateralcircle;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 /**
  * 双向循环链表测试

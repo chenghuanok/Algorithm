@@ -4,7 +4,7 @@ import cn.struct.algorithm.linkedklist.singly.SinglyNode;
 public class Main {
 
     public static void main(String[] args) {
-        System.out.println("321321");
+        System.out.println("32132145");
 //         isLoopLinkedList();
     }
 
